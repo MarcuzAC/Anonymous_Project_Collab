@@ -1,0 +1,16 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+
+{% block title %}Home | Anti-Corruption Tips{% endblock %}
+
+{% block content %}
+<h2>Welcome</h2>
+<p>
+    Your voice matters. Help us fight corruption by submitting anonymous tips.
+    All submissions are strictly confidential.
+</p>
+
+<a href="{{ url_for('submit_tip') }}">
+    <button style="padding: 10px 20px; font-size: 16px;">Submit a Tip</button>
+</a>
+{% endblock %}
