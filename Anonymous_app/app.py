@@ -42,7 +42,7 @@ def submit_tip():
 
         # Save to the database
         new_tip = Tip(
-            text=tip_text,
+            tip=tip_text,
             category=category,
             latitude=latitude,
             longitude=longitude,
