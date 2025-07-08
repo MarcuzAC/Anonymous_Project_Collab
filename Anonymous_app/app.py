@@ -15,6 +15,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
 
+with app.app_context():
+     db.create_all()
+
 
 
 
@@ -27,10 +30,12 @@ def submit_tip():
     from models.tip import Tip
 
     if request.method == 'POST':
-        tip_text = request.form.get('tip')
-        category = request.form.get('category')
-        latitude = request.form.get('latitude')
-        longitude = request.form.get('longitude')
+        corruption_type = request.form.get('corruption_type')
+        location = request.form.get('location')
+        date= request.form.get('date')
+        people = request.form.get('people')
+        tip_category = request.form.get('tip_category')
+        description = request.form.get('description')
         file = request.files.get('file')
         filename = None
 
@@ -42,10 +47,12 @@ def submit_tip():
 
         # Save to the database
         new_tip = Tip(
-            tip=tip_text,
-            category=category,
-            latitude=latitude,
-            longitude=longitude,
+            corruption_type=corruption_type,
+            location=location,
+            date=date,
+            people=people,
+            tip_category=tip_category,
+            description=description,
             file=filename,
             timestamp=datetime.now()
         )

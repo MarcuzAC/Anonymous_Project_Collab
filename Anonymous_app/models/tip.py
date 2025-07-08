@@ -4,10 +4,13 @@ from datetime import datetime
 from models import db  # ✅ Import the shared db instance
 
 class Tip(db.Model):
+    __tablename__ = 'tip'
     id = db.Column(db.Integer, primary_key=True)
-    text = db.Column(db.Text, nullable=False)
-    category = db.Column(db.String(50))
-    filename = db.Column(db.String(100))
-    latitude = db.Column(db.Float)
-    longitude = db.Column(db.Float)
+    corruption_type = db.Column(db.String(100), nullable=False)
+    location= db.Column(db.String(100))
+    date= db.Column(db.String(20))
+    people = db.Column(db.String(200))
+    tip_category= db.Column(db.String(100))
+    description = db.Column(db.Text)
+    file = db.Column(db.String(200))
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
