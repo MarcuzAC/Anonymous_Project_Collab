@@ -5,14 +5,14 @@ import os
 import json
 
 from models import db
-from models.tip import Tip  # Match your actual model
+from models.tip import Tip  
 
 # === Flask App Setup ===
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tips.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['UPLOAD_FOLDER'] = os.path.join(os.path.dirname(__file__), 'uploads')
-app.secret_key = 'your-secret-key'  # Required for sessions
+app.secret_key = 'your-secret-key'  
 
 # === Ensure uploads folder exists ===
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
